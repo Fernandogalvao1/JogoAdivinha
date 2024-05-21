@@ -5,27 +5,26 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-
         int numeroSecreto = random.nextInt(100) + 1;
         int tentativas = 0;
         int palpite = 0;
 
-        System.out.println("Descubra o número secreto entre 1 e 100!");
+
+        System.out.println("Bem vindo ao jogo de adivinhação");
 
         while (palpite != numeroSecreto) {
-            System.out.println("Digite seu palpite");
+            System.out.println("Digite seu palpite e tente acertar o número secreto que vai de 1 até 100: ");
             palpite = scanner.nextInt();
             tentativas++;
 
-            if (palpite < numeroSecreto) {
-                System.out.println("Está quase lá, mas o número secreto é um pouco maior. Tente novamente!");
-            } else if (palpite > numeroSecreto) {
-                System.out.println("Está perto, mas o número secreto é um pouco menor. Tente novamente!");
-
+            if (palpite > numeroSecreto) {
+                System.out.println("Quase lá, mas o número secreto é menor do que seu palpite.");
+            } else if (palpite < numeroSecreto) {
+                System.out.println("Quase lá, mas o número secreto é maior do que seu palpite.");
             } else {
-                System.out.println("Parabens! Você acertou com " + tentativas + " tentativas");
+                System.out.println("Parabéns! Você acertou o número "+ numeroSecreto + " em " + tentativas + " tentativas!");
             }
+
         }
-        scanner.close();
     }
 }
